@@ -3,7 +3,6 @@ export interface User extends UserLoginData {
     address: string,
     phone: string
 }
-
 export interface UserLoginData {
     name: string,
     email: string
