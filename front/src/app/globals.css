@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #58a0e2;
+  --color-primary-light: #d5dfe9;
+  --color-primary-dark: #314d6b;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+body {
+  background-image: url("/circuito.png");
+  background-color: var(--color-gray-50);
+  color: var(--color-stone-900);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+  flex-grow: 1;
+}
+
+.wrapper {
+  width: 95%;
+  max-width: 1390px;
+  margin: 0 auto;
+}
+
+.min-h-inherit {
+  min-height: inherit;
+}
+
+.min-h-available {
+  min-height: -webkit-fill-available;
+}
+
+.max-md\:mb-5p {
+  @media (width < 48rem) {
+    margin-bottom: 5%;
+  }
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: 500;
+  @media (width < 48rem) {
+    font-size: 1.8rem !important;
+  }
+}
+
+h2 {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.text-responsive {
+  font-size: 5vw;
+}
+
+.sm\:text-responsive {
+  @media (width >= 40rem) {
+    font-size: 4vw;
+  }
+}
+
+.md\:text-responsive {
+  @media (width >= 48rem) {
+    font-size: 3vw;
+  }
+}
+
+.lg\:text-responsive {
+  @media (width >= 64rem) {
+    font-size: 2vw;
+  }
+}
+
+.button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: bold;
+  display: block;
+  width: max-content;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-lg);
+  transition: background-color 0.3s ease;
+  outline: none;
+}
+
+.button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.link {
+  @apply text-gray-50 hover:text-stone-900 text-xl;
+}
+
+.form {
+  @apply flex flex-col items-stretch justify-center-safe max-md:mx-2 mx-12 flex-grow;
+}
+
+.form-field {
+  @apply relative mt-2 mb-4;
+}
+
+hr {
+  @apply border-2 border-primary;
+}
+
+.form-field label {
+  top: calc(var(--spacing) * -2);
+  left: calc(var(--spacing) * 2);
+  background-color: var(--color-white);
+  padding-inline: calc(var(--spacing) * 1);
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+  color: var(--color-primary-dark);
+  position: absolute;
+  -webkit-user-select: none;
+  user-select: none;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  transform-origin: left;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.form-field input:placeholder-shown + label {
+  top: calc(var(--spacing) * 2.6);
+  left: calc(var(--spacing) * 1.6);
+  opacity: 0;
+  letter-spacing: -0.004rem;
+  font-weight: 400;
+  transform: scale(1.35);
+}
+
+.form-field input {
+  --line-wdith: 1px;
+  border-radius: var(--radius-md);
+  width: 350px;
+  padding-inline: calc(var(--spacing) * 3);
+  padding-block: calc(var(--spacing) * 1.5);
+  outline-offset: calc(var(--line-wdith) * -1);
+  outline-width: var(--line-wdith);
+  outline-style: solid;
+  outline-color: var(--color-gray-300);
+}
+
+.form-field input:focus {
+  --line-wdith: 2px;
+  outline-color: var(--color-primary);
+}
+
+.form-field input:focus:hover {
+  --line-wdith: 2px;
+  outline-color: var(--color-primary-dark);
+}
+
+.form-field input:not(focus):hover {
+  --line-wdith: 2px;
+  outline-color: var(--color-primary-light);
+}
+
+.form-field .error {
+  @apply text-pink-600 absolute text-xs right-1 text-left select-none;
+}

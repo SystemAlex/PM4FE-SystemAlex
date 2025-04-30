@@ -1,0 +1,98 @@
+"use client";
+import { useContext } from "react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { UserContext } from "@/context/userContext";
+import { CartContext } from "@/context/cartContext";
+
+const Menu = () => {
+  const { user, setUser } = useContext(UserContext);
+  const { cart, setCart } = useContext(CartContext);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    setUser(null);
+    setCart([]);
+    localStorage.removeItem("user");
+    localStorage.removeItem("cart");
+    router.push("/");
+  };
+
+  const pathname = usePathname();
+
+  return (
+    <nav className="flex items-center justify-between">
+      <ul className="flex flex-wrap justify-center space-x-4 text-gray-50">
+        <li>
+          <Link
+            href="/"
+            className={`link ${
+              pathname === "/" ? "!text-primary-dark font-bold" : ""
+            }`}
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/products"
+            className={`link ${
+              pathname === "/products" ? "!text-primary-dark font-bold" : ""
+            }`}
+          >
+            Products
+          </Link>
+        </li>
+
+        {user ? (
+          <>
+            <li>
+              <Link
+                href="/dashboard"
+                className={`link ${
+                  pathname === "/dashboard"
+                    ? "!text-primary-dark font-bold"
+                    : ""
+                }`}
+              >
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/cart"
+                className={`link whitespace-nowrap ${
+                  pathname === "/cart" ? "!text-primary-dark font-bold" : ""
+                }`}
+              >
+                {`Cart ${cart.length > 0 ? "(" + cart.length + ")" : " "}`}
+              </Link>
+            </li>
+            <li>
+              <button onClick={handleLogout} className="link">
+                Logout
+              </button>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <Link
+                href="/login"
+                className={`link ${
+                  pathname === "/login" || pathname === "/register"
+                    ? "!text-primary-dark font-bold"
+                    : ""
+                }`}
+              >
+                Sing In
+              </Link>
+            </li>
+          </>
+        )}
+      </ul>
+    </nav>
+  );
+};
+
+export default Menu;
