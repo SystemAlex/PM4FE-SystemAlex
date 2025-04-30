@@ -1,4 +1,4 @@
-> ![logo ShopTech](./front/src/assets/banner_ShopTech.png)
+![logo ShopTech](./front/src/assets/banner_ShopTech.png)
 
 > ### Descripción del Proyecto:
 
@@ -25,8 +25,8 @@
 
 > ### Para probar el Repositorio del Proyecto:
 
-1. Clonar Repositorio: git clone https://github.com/pi-rym/PM4FE-SystemAlex
-2. Cambir el directorio: cd front
-3. Dentro de la carpeta del proyecto ejecutar: npm install
-4. Compilar el projecto: npm run build
-5. Posteriormente ejecutar: npm start
+1. Clonar Repositorio: ``` git clone https://github.com/pi-rym/PM4FE-SystemAlex ```
+2. Cambir el directorio: ``` cd front ```
+3. Dentro de la carpeta del proyecto ejecutar: ``` npm install ```
+4. Compilar el projecto: ``` npm run build ```
+5. Posteriormente ejecutar: ```npm start ```
