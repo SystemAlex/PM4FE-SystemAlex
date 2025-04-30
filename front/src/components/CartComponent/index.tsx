@@ -51,7 +51,7 @@ const CartComponent = () => {
 
   const initialOder = 0;
   const totalOrder = cart.reduce(
-    (accumulator: any, currentValue: { price: any; }) => accumulator + currentValue.price,
+    (accumulator, currentValue) => accumulator + currentValue.price,
     initialOder
   );
 
@@ -67,7 +67,7 @@ const CartComponent = () => {
         </div>
       ) : (
         <div className="flex flex-col gap-3">
-          {cart.map((item: any) => (
+          {cart.map((item) => (
             <div
               key={item.id}
               className="flex justify-between gap-15 items-center p-3  border border-gray-200 rounded-lg bg-white"
@@ -79,9 +79,9 @@ const CartComponent = () => {
               <p className="text-2xl">
                 <span className="text-gray-700 font-bold">Price: </span>$
                 {item.price.toLocaleString("es-AR", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
               </p>
             </div>
           ))}

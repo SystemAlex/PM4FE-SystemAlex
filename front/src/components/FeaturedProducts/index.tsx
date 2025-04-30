@@ -2,9 +2,10 @@ import { getFeaturedProducts } from "@/services/productService";
 import { Product } from "@/interfaces/Product";
 import Card from "../Card";
 
-const featuredProducts = await getFeaturedProducts();
+const FeaturedProducts = async () => {
 
-const FeaturedProducts = () => {
+  const featuredProducts = await getFeaturedProducts();
+
   return (
     <div>
       <h2 className="text-center text-primary">Featured Products</h2>

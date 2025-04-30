@@ -18,16 +18,14 @@ const CategoryNavBar: React.FC = () => {
 
   const displayText = currentCategory ? currentCategory.name : 'Categories';
 
-  // Efecto para cerrar el menú al cambiar la ruta
   useEffect(() => {
     if (isOpen) {
       setIsOpen(false);
     }
-  }, [pathname]); // Dependencias: pathname para escuchar cambios de ruta, isOpen para evitar bucles innecesarios
+  }, [pathname]);
 
   return (
     <nav className="w-full bg-primary-dark relative">
-      {/* Menú desplegable (visible en pantallas pequeñas) */}
       <div className="sm:hidden p-4 flex items-center justify-between">
         <button
           onClick={toggleMenu}
@@ -74,7 +72,6 @@ const CategoryNavBar: React.FC = () => {
         )}
       </div>
 
-      {/* Barra de navegación completa (oculta en pantallas pequeñas) */}
       <ul className="hidden sm:flex wrapper justify-center items-center flex-wrap space-x-3 text-lg">
         {categories.map(({ id, name }) => (
           <li key={id}>
