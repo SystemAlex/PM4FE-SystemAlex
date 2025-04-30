@@ -1,0 +1,97 @@
+front
+├── .eslintrc.json
+├── .gitignore
+├── envs.ts
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── circuito.png
+│   └── favicon.svg
+├── src
+│   ├── app
+│   │   ├── cart
+│   │   │   └── page.tsx
+│   │   ├── category
+│   │   │   ├── page.tsx
+│   │   │   └── [id]
+│   │   │       └── page.tsx
+│   │   ├── dashboard
+│   │   │   └── page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── loading.tsx
+│   │   ├── login
+│   │   │   └── page.tsx
+│   │   ├── not-found.tsx
+│   │   ├── page.tsx
+│   │   ├── products
+│   │   │   ├── page.tsx
+│   │   │   └── [id]
+│   │   │       └── page.tsx
+│   │   └── register
+│   │       └── page.tsx
+│   ├── assets
+│   │   ├── banner_ShopTech.png
+│   │   ├── img_home.jpg
+│   │   ├── landing.png
+│   │   ├── logo_ShopTech.png
+│   │   ├── logo_ShopTech.svg
+│   │   └── shop.jpg
+│   ├── components
+│   │   ├── Card
+│   │   │   └── index.tsx
+│   │   ├── CartComponent
+│   │   │   └── index.tsx
+│   │   ├── CategoriesNavBar
+│   │   │   └── CategoriesNavbar.tsx
+│   │   ├── Detail
+│   │   │   └── index.tsx
+│   │   ├── FeaturedProducts
+│   │   │   └── index.tsx
+│   │   ├── Footer
+│   │   │   └── index.tsx
+│   │   ├── FormContent
+│   │   │   └── index.tsx
+│   │   ├── Landing
+│   │   │   └── index.tsx
+│   │   ├── LoginComponent
+│   │   │   └── index.tsx
+│   │   ├── Logo
+│   │   │   └── index.tsx
+│   │   ├── Menu
+│   │   │   └── index.tsx
+│   │   ├── NavBar
+│   │   │   └── index.tsx
+│   │   ├── OrdersComponent
+│   │   │   └── index.tsx
+│   │   ├── PerfilComponent
+│   │   │   └── index.tsx
+│   │   ├── RegisterComponent
+│   │   │   └── index.tsx
+│   │   └── ToastProvider
+│   │       └── index.tsx
+│   ├── context
+│   │   ├── cartContext.tsx
+│   │   ├── context.tsx
+│   │   └── userContext.tsx
+│   ├── helpers
+│   │   ├── validateLogin.ts
+│   │   └── validateRegister.ts
+│   ├── interfaces
+│   │   ├── CartContextProps.ts
+│   │   ├── Category.ts
+│   │   ├── Login.ts
+│   │   ├── Order.ts
+│   │   ├── Product.ts
+│   │   ├── Register.ts
+│   │   ├── User.ts
+│   │   └── UserContextProps.ts
+│   └── services
+│       ├── ordersService.ts
+│       ├── productService.ts
+│       └── userService.ts
+└── tsconfig.json
