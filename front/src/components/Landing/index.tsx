@@ -9,14 +9,14 @@ const Landing = () => {
   const { user } = useContext(UserContext);
 
   return !user ? (
-    <div className="relative w-full h-[65vh] max-md:mb-5p mb-8 bg-primary-light/50 rounded-lg">
+    <div className="relative w-full h-[40vh] max-md:mb-5p mb-8 bg-primary-light/50 rounded-lg">
       <Image
         src={imgLanding}
         alt="Imagen de fondo del Landing"
         fill={true}
         className="-z-10 object-cover object-center rounded-lg"
       />
-      <div className="absolute top-0 left-0 min-h-available p-5 text-left m-10">
+      <div className="absolute top-0 left-0 min-h-available p-5 text-left m-5 md:m-10">
         <p className="text-7xl max-md:text-4xl text-primary font-bold leading-tight">
           Sing Up Today
         </p>
@@ -24,12 +24,14 @@ const Landing = () => {
           and Get Free Shipping
         </p>
         <small className="block text-right">ONLY THE FIRST SHIPPING</small>
-        <p className="text-3xl text-primary-dark absolute bottom-4 left-4 right-20">
-          Shop the best of electronic, Grab the deals, offers and more.
-        </p>
-        <Link href="/register" className="absolute bottom-4 right-4 button">
-          Sing Up
-        </Link>
+        <div className="flex absolute bottom-4 left-4 right-4 justify-between items-end gap-5 max-md:flex-col max-md:gap-2">
+          <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-primary-dark">
+            Shop the best of electronic, Grab the deals, offers and more.
+          </p>
+          <Link href="/register" className="button flex-none">
+            Sing Up
+          </Link>
+        </div>
       </div>
     </div>
   ) : (

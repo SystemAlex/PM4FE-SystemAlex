@@ -2,10 +2,11 @@
 import { ChangeEvent, FormEvent, useState, useContext, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ILogin } from "../../interfaces/ILogin";
+import { Login } from "../../interfaces/Login";
 import { validateLogin } from "../../helpers/validateLogin";
 import { userLogin } from "@/services/userService";
 import { UserContext } from "../../context/userContext";
+import { toast } from "react-toastify";
 
 const LoginComponent = () => {
   return (
@@ -27,7 +28,7 @@ const LoginContent = () => {
     password: "",
   });
 
-  const [errors, setErrors] = useState<ILogin>({});
+  const [errors, setErrors] = useState<Login>({});
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -47,7 +48,14 @@ const LoginContent = () => {
         setUser(res);
         router.push(redirectPath || "/");
       } else {
-        alert(res.message);
+        if (res.message === "Invalid password") {
+          setErrors(validateLogin({ ...userData, password: "wrong password" }));
+        } else if (res.message === "User does not exist") {
+          setErrors(validateLogin({ ...userData, email: "notfound" }));
+          toast.error("User not found, please register");
+        } else {
+          toast.error(res.message);
+        }
       }
     }
   };

@@ -1,10 +1,10 @@
-import { IRegister } from "../interfaces/IRegister";
+import { Register } from "../interfaces/Register";
 
 export const validateRegister = (
-  input: IRegister,
+  input: Register,
   validateEmptyFields = false
 ) => {
-  const errors: IRegister = {};
+  const errors: Register = {};
 
   const nameRegex = /^[a-zA-Z\s]+$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

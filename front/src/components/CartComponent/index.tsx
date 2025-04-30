@@ -4,6 +4,8 @@ import { buyOrder } from "@/services/ordersService";
 import { CartContext } from "@/context/cartContext";
 import { UserContext } from "@/context/userContext";
 import { useRouter } from "next/navigation";
+import FeaturedProducts from "../FeaturedProducts";
+import { toast } from "react-toastify";
 
 const CartComponent = () => {
   const { cart, cleanCart } = useContext(CartContext);
@@ -33,12 +35,13 @@ const CartComponent = () => {
       if (res.status === "approved") {
         updateOrders({ status: res.status, id: res.id, date: res.date });
         cleanCart();
+        toast.success("Order approved successfully!");
         router.push(`/dashboard`);
       } else {
-        alert(res.message);
+        toast.error(res.message);
       }
     } else {
-      alert("Error!");
+      toast.error("Error!");
     }
   };
 
@@ -48,7 +51,7 @@ const CartComponent = () => {
 
   const initialOder = 0;
   const totalOrder = cart.reduce(
-    (accumulator, currentValue) => accumulator + currentValue.price,
+    (accumulator: any, currentValue: { price: any; }) => accumulator + currentValue.price,
     initialOder
   );
 
@@ -60,10 +63,11 @@ const CartComponent = () => {
           <button className="button mt-3 mb-3 self-center" onClick={handleMore}>
             Start Buying
           </button>
+          <FeaturedProducts />
         </div>
       ) : (
         <div className="flex flex-col gap-3">
-          {cart.map((item) => (
+          {cart.map((item: any) => (
             <div
               key={item.id}
               className="flex justify-between gap-15 items-center p-3  border border-gray-200 rounded-lg bg-white"

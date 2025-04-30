@@ -1,8 +1,8 @@
 import { API_URL } from "../../envs";
-import { ILogin } from "@/interfaces/ILogin";
-import { IRegister } from "@/interfaces/IRegister";
+import { Login } from "@/interfaces/Login";
+import { Register } from "@/interfaces/Register";
 
-export const userRegister = async (data: IRegister) => {
+export const userRegister = async (data: Register) => {
   const res = await fetch(`${API_URL}/users/register`, {
     method: "POST",
     body: JSON.stringify(data),
@@ -11,7 +11,7 @@ export const userRegister = async (data: IRegister) => {
   return res.json();
 };
 
-export const userLogin = async (data: ILogin) => {
+export const userLogin = async (data: Login) => {
   const res = await fetch(`${API_URL}/users/login`, {
     method: "POST",
     body: JSON.stringify(data),

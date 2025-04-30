@@ -1,16 +1,16 @@
 "use client";
 import { createContext, useState, useEffect } from "react";
-import { IProduct } from "@/interfaces/IProduct";
-import { ICartContextProps } from "../interfaces/ICartContextProps";
+import { Product } from "@/interfaces/Product";
+import { CartContextProps } from "../interfaces/CartContextProps";
 
-export const CartContext = createContext<ICartContextProps>({
+export const CartContext = createContext<CartContextProps>({
   cart: [],
   setCart: () => {},
   cleanCart: () => {},
 });
 
 const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cart, setCart] = useState<IProduct[]>([]);
+  const [cart, setCart] = useState<Product[]>([]);
 
   useEffect(() => {
     if (cart.length > 0) {

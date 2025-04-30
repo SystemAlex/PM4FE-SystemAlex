@@ -110,10 +110,6 @@ h3 {
   background-color: var(--color-primary-dark);
 }
 
-.link {
-  @apply text-gray-50 hover:text-stone-900 text-xl;
-}
-
 .form {
   @apply flex flex-col items-stretch justify-center-safe max-md:mx-2 mx-12 flex-grow;
 }
@@ -182,4 +178,16 @@ hr {
 
 .form-field .error {
   @apply text-pink-600 absolute text-xs right-1 text-left select-none;
+}
+
+.loading-backdrop {
+  backdrop-filter: blur(7px) !important;
+  background-color: var(--color-primary-dark);
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
 }

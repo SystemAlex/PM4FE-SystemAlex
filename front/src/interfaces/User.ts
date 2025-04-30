@@ -1,6 +1,6 @@
-import { IOrder } from "./IOrder";
+import { Order } from "./Order";
 
-export interface IUser {
+export interface User {
   login: boolean;
   user: UserData;
   token: string;
@@ -14,7 +14,7 @@ interface UserData {
   phone: string;
   role: string;
   credential: Credential;
-  orders: IOrder[];
+  orders: Order[];
 }
 
 interface Credential {

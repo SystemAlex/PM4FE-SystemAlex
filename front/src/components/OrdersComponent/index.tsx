@@ -1,6 +1,6 @@
 "use client";
 import { useContext } from "react";
-import { IOrder } from "@/interfaces/IOrder";
+import { Order } from "@/interfaces/Order";
 import { UserContext } from "@/context/userContext";
 import { useRouter } from "next/navigation";
 
@@ -29,16 +29,13 @@ const OrdersComponent = () => {
   const { orders } = user.user;
 
   return (
-    <div>
+    <div className="container flex flex-col gap-5">
       <div className="flex justify-center items-center justify-items-center gap-5">
         <hr className="flex-grow !border-pink-600 border-2 border-dashed" />
         <p className="text-pink-600 text-center text-3xl">Your Orders</p>
         <hr className="flex-grow !border-pink-600 border-2 border-dashed" />
       </div>
-      <button className="button mt-3 mb-3 self-center ml-auto" onClick={handleMore}>
-        Buy More
-      </button>
-      {orders.map((order: IOrder, i) => (
+      {orders.map((order: Order, i: number) => (
         <div
           key={i}
           className="flex justify-between gap-20 max-md:gap-5 items-center p-2 border mb-2 border-gray-300 rounded-lg bg-gray-50"
@@ -57,6 +54,9 @@ const OrdersComponent = () => {
           </p>
         </div>
       ))}
+      <button className="button mt-3 mb-3 self-center mx-auto" onClick={handleMore}>
+        Buy More
+      </button>
     </div>
   );
 };

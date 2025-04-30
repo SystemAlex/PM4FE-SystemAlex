@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { UserContext } from "@/context/userContext";
 import { CartContext } from "@/context/cartContext";
+import { toast } from "react-toastify";
 
 const Menu = () => {
   const { user, setUser } = useContext(UserContext);
@@ -11,6 +12,7 @@ const Menu = () => {
   const router = useRouter();
 
   const handleLogout = () => {
+    toast.success("Thank you for shopping at ShopTech, come back soon!");
     setUser(null);
     setCart([]);
     localStorage.removeItem("user");
@@ -22,11 +24,11 @@ const Menu = () => {
 
   return (
     <nav className="flex items-center justify-between">
-      <ul className="flex flex-wrap justify-center space-x-4 text-gray-50">
+      <ul className="flex flex-wrap justify-center space-x-4 text-primary-light text-xl">
         <li>
           <Link
             href="/"
-            className={`link ${
+            className={`text-primary-light hover:text-primary-dark ${
               pathname === "/" ? "!text-primary-dark font-bold" : ""
             }`}
           >
@@ -36,7 +38,7 @@ const Menu = () => {
         <li>
           <Link
             href="/products"
-            className={`link ${
+            className={`text-primary-light hover:text-primary-dark ${
               pathname === "/products" ? "!text-primary-dark font-bold" : ""
             }`}
           >
@@ -49,7 +51,7 @@ const Menu = () => {
             <li>
               <Link
                 href="/dashboard"
-                className={`link ${
+                className={`text-primary-light hover:text-primary-dark ${
                   pathname === "/dashboard"
                     ? "!text-primary-dark font-bold"
                     : ""
@@ -61,7 +63,7 @@ const Menu = () => {
             <li>
               <Link
                 href="/cart"
-                className={`link whitespace-nowrap ${
+                className={`text-primary-light hover:text-primary-dark whitespace-nowrap ${
                   pathname === "/cart" ? "!text-primary-dark font-bold" : ""
                 }`}
               >
@@ -69,8 +71,8 @@ const Menu = () => {
               </Link>
             </li>
             <li>
-              <button onClick={handleLogout} className="link">
-                Logout
+              <button onClick={handleLogout} className="text-primary-light hover:text-primary-dark">
+                Log out
               </button>
             </li>
           </>
@@ -79,7 +81,7 @@ const Menu = () => {
             <li>
               <Link
                 href="/login"
-                className={`link ${
+                className={`text-primary-light hover:text-primary-dark ${
                   pathname === "/login" || pathname === "/register"
                     ? "!text-primary-dark font-bold"
                     : ""

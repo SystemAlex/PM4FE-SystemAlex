@@ -1,8 +1,8 @@
 import { API_URL } from "../../envs";
-import { IProduct } from "@/interfaces/IProduct";
-import { IUser } from "@/interfaces/IUser";
+import { Product } from "@/interfaces/Product";
+import { User } from "@/interfaces/User";
 
-export const buyOrder = async (cart: IProduct[], user: IUser) => {
+export const buyOrder = async (cart: Product[], user: User) => {
   const data = {
     userId: user.user.id,
     products: cart.map((product) => product.id),

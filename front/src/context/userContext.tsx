@@ -1,17 +1,17 @@
 "use client";
 import { createContext, useState, useEffect } from "react";
-import { IUser } from "@/interfaces/IUser";
-import { IOrder } from "@/interfaces/IOrder";
-import { IUserContextProps } from "../interfaces/IUserContextProps";
+import { User } from "@/interfaces/User";
+import { Order } from "@/interfaces/Order";
+import { UserContextProps } from "../interfaces/UserContextProps";
 
-export const UserContext = createContext<IUserContextProps>({
+export const UserContext = createContext<UserContextProps>({
   user: null,
   setUser: () => {},
   updateOrders: () => {},
 });
 
 const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<IUser | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const localUser = localStorage.getItem("user");
@@ -26,7 +26,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, [user]);
 
-  const updateOrders = (order: IOrder) => {
+  const updateOrders = (order: Order) => {
     const newUser = user;
     newUser?.user.orders.push({
       id: order.id,

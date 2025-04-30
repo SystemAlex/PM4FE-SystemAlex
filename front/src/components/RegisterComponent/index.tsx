@@ -1,10 +1,11 @@
 "use client";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { IRegister } from "../../interfaces/IRegister";
+import { Register } from "../../interfaces/Register";
 import { validateRegister } from "../../helpers/validateRegister";
 import { userRegister } from "@/services/userService";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const RegisterComponent = () => {
   const router = useRouter();
@@ -18,7 +19,7 @@ const RegisterComponent = () => {
     repeatedPassword: "",
   });
 
-  const [errors, setErrors] = useState<IRegister>({});
+  const [errors, setErrors] = useState<Register>({});
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -35,9 +36,14 @@ const RegisterComponent = () => {
     } else {
       const res = await userRegister(userData);
       if (!res.message) {
+        toast.success("User registered successfully, please log in");
         router.push("/login");
       } else {
-        alert(res.message);
+        if (res.message === "User already exists") {
+          toast.error("User already exists");
+        } else {
+          toast.error(res.message);
+        }
       }
 
       setUserData({

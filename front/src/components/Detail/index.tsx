@@ -2,17 +2,18 @@
 import Image from "next/image";
 import { useContext } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { IProduct } from "@/interfaces/IProduct";
+import { Product } from "@/interfaces/Product";
 import { UserContext } from "@/context/userContext";
 import { CartContext } from "@/context/cartContext";
+import { toast } from "react-toastify/unstyled";
 
-const Detail = ({ product }: { product: IProduct }) => {
+const Detail = ({ product }: { product: Product }) => {
   const { user } = useContext(UserContext);
   const { cart, setCart } = useContext(CartContext);
   const router = useRouter();
   const pathname = usePathname();
 
-  const isInCart = cart.some((p) => p.id === product.id);
+  const isInCart = cart.some((p: { id: number; }) => p.id === product.id);
 
   const handleBuy = () => {
     if (user) {
@@ -20,7 +21,7 @@ const Detail = ({ product }: { product: IProduct }) => {
         setCart([...cart, product]);
         router.push(`/cart`);
       } else {
-        alert("Product is already in the cart!");
+        toast.error("Product is already in the cart!");
         router.back();
       }
     } else {

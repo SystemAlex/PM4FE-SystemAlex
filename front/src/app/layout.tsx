@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Contexts from "@/context/context";
+import ToastProvider from "@/components/ToastProvider";
 
 const primaryFont = Poppins({
   subsets: ["latin"],
@@ -28,11 +29,13 @@ export default function RootLayout({
           <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         </head>
         <body>
-          <div className="flex flex-col h-screen">
-            <NavBar />
-            <main className="flex-grow-1 wrapper pt-8">{children}</main>
-            <Footer />
-          </div>
+          <ToastProvider>
+            <div className="flex flex-col h-screen">
+              <NavBar />
+              <main className="flex-grow-1 wrapper pt-8">{children}</main>
+              <Footer />
+            </div>
+          </ToastProvider>
         </body>
       </html>
     </Contexts>

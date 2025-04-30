@@ -29,8 +29,8 @@ const PerfilComponent = () => {
         <p className="text-pink-600 text-center text-3xl">Your Profile</p>
         <hr className="flex-grow !border-pink-600 border-2 border-dashed" />
       </div>
-      <div>
-        <p className="text-2xl">
+      <div className="max-w-xl mx-auto">
+        <p className="mr-auto text-2xl">
           <span className="text-gray-700 font-bold">Name: </span>
           {name}
         </p>
