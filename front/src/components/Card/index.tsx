@@ -33,7 +33,7 @@ const Card = ({ product }: { product: Product }) => {
   };
 
   return (
-    <Link className="p-6" href={`products/${product.id}`}>
+    <Link className="p-6" href={`/products/${product.id}`}>
       <div className="p-4 bg-white border border-gray-200 rounded-lg text-primary-dark hover:shadow-lg h-full flex flex-col hover:scale-110 transition-transform duration-300">
         <p className="font-semibold mb-2">{product.name}</p>
         <Image

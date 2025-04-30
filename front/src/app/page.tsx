@@ -16,7 +16,7 @@ const Home = () => {
         />
         <div className="absolute top-0 left-0 min-h-available p-5 text-left m-5 md:m-10">
           <p className="text-2xl  text-pink-600 font-bold">40% Discount</p>
-          <p className="text-6xl max-md:text-3xl text-primary-dark text-center font-bold leading-tight mb-10">
+          <p className="text-6xl max-md:text-3xl text-primary-dark text-center font-bold leading-tight mb-5">
             AirPods Max
           </p>
           <p className="text-[30px] text-gray-700 text-center">

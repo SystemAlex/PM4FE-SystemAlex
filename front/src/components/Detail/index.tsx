@@ -5,7 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { Product } from "@/interfaces/Product";
 import { UserContext } from "@/context/userContext";
 import { CartContext } from "@/context/cartContext";
-import { toast } from "react-toastify/unstyled";
+import { toast } from "react-toastify";
 
 const Detail = ({ product }: { product: Product }) => {
   const { user } = useContext(UserContext);
@@ -13,18 +13,19 @@ const Detail = ({ product }: { product: Product }) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const isInCart = cart.some((p: { id: number; }) => p.id === product.id);
+  const isInCart = cart.some((p: { id: number }) => p.id === product.id);
 
   const handleBuy = () => {
     if (user) {
       if (!isInCart) {
+        toast.success("Added to cart!");
         setCart([...cart, product]);
         router.push(`/cart`);
       } else {
         toast.error("Product is already in the cart!");
-        router.back();
       }
     } else {
+      toast.error("You need to be logged in to buy a product!");
       router.push(`/login?redirect=${pathname}`);
     }
   };
