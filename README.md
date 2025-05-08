@@ -1,4 +1,4 @@
-![logo ShopTech](./front/src/assets/banner_ShopTech.png)
+![logo ShopTech](/front/src/assets/banner_ShopTech.png)
 
 [ShopTech](https://shoptech-sbn6.onrender.com/)
 
